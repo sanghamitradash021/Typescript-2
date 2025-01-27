@@ -14,7 +14,7 @@ export class AppStateManager implements StateManager {
   private static instance: AppStateManager;
 
   /**
-   * Array of FormData objects representing the current state data.
+   * Array of FormData objects representing the current statedata.
    * @private
    */
   private data: FormData[] = [];

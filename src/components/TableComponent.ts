@@ -493,14 +493,6 @@ export class TableComponent extends BaseComponent {
     document.head.appendChild(style);
   }
 
-  /**
-   * Deletes an item by emitting an event.
-   * @param {string} id - The ID of the item to delete.
-   */
-
-  private deleteItem(id: string): void {
-    this.eventEmitter.emit("deleteData", id);
-  }
 
   /**
    * Restores a deleted item by emitting an event.

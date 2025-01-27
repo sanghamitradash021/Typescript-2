@@ -175,7 +175,6 @@ export class AppComponent extends BaseComponent {
       this.handleRestoreDeleteData(id)
     );
 
-    const restoreModal = document.getElementById("restoreModal") as HTMLElement;
     const confirmRestoreButton = document.getElementById(
       "confirmRestore"
     ) as HTMLButtonElement;
@@ -186,7 +185,6 @@ export class AppComponent extends BaseComponent {
     confirmRestoreButton.addEventListener("click", () => this.confirmRestore());
     cancelRestoreButton.addEventListener("click", () => this.cancelRestore());
 
-    const deleteModal = document.getElementById("deleteModal") as HTMLElement;
     const confirmDeleteButton = document.getElementById(
       "confirmDelete"
     ) as HTMLButtonElement;
@@ -205,7 +203,7 @@ export class AppComponent extends BaseComponent {
 
   private addData(data: FormData): void {
     const currentData = this.stateManager.getData();
-    this.stateManager.setData([...currentData, data]);
+    this.stateManager.setData([data, ...currentData]);
     if (this.tableComponent) {
       this.tableComponent.render(this.stateManager.getData());
     }
@@ -324,7 +322,7 @@ export class AppComponent extends BaseComponent {
     const lastThreeSubmissions = this.getLastThreeSubmissions();
 
     restoreOptions.innerHTML = lastThreeSubmissions
-      .map((item, index) => ``)
+      .map((_item) => ``)
       .join("");
 
     restoreModal.style.display = "block";

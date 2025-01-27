@@ -51,7 +51,7 @@ export interface EventListener {
   * @param eventName - Name of the event to emit.
   * @param args - Arguments to pass to the callback functions.
   */
-  emit(eventName: string, ...args: any[]): void;
+  emit(eventName: string, ...args: unknown[]): void;
 }
 
 // export interface StateManager {

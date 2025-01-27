@@ -33,6 +33,13 @@ export class FormComponent extends BaseComponent {
   private getCountries(): Country[] {
     return [
       {
+        name: "INDIA",
+        states: [
+          { name: "Uttar Pradesh", cities: ["Prayagraj", "Ayodhya"] },
+          { name: "Odisha", cities: ["Puri", "Bhubaneswar"] },
+        ],
+      },
+      {
         name: "USA",
         states: [
           { name: "California", cities: ["Los Angeles", "San Francisco"] },
@@ -347,9 +354,6 @@ export class FormComponent extends BaseComponent {
   private handleCountryChange(): void {
     const countrySelect = this.element.querySelector(
       "#country"
-    ) as HTMLSelectElement;
-    const stateSelect = this.element.querySelector(
-      "#state"
     ) as HTMLSelectElement;
     const citySelect = this.element.querySelector("#city") as HTMLSelectElement;
 

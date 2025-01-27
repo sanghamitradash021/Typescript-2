@@ -9,14 +9,14 @@ export class EventEmitter implements EventListener {
   /**
    * Stores event listeners for various event names.
    * @private
-   * @type {{ [eventName: string]: ((...args: any[]) => void)[] }}
+   * @type {{ [eventName: string]: ((...args: unknown[]) => void)[] }}
    */
-  private listeners: { [eventName: string]: ((...args: any[]) => void)[] } = {};
+  private listeners: { [eventName: string]: ((...args: unknown[]) => void)[] } = {};
 
   /**
    * Registers a listener callback for a specific event name.
    * @param {string} eventName - The name of the event to listen for.
-   * @param {(...args: any[]) => void} callback - The callback function to execute when the event is emitted.
+   * @param {(...args: unknown[]) => void} callback - The callback function to execute when the event is emitted.
    */
 
   on(eventName: string, callback: (...args: any[]) => void): void {
@@ -28,10 +28,10 @@ export class EventEmitter implements EventListener {
   /**
    * Emits an event and invokes all listener callbacks associated with the event.
    * @param {string} eventName - The name of the event to emit.
-   * @param {...any[]} args - Additional arguments to pass to the listener callbacks.
+   * @param {...unknown[]} args - Additional arguments to pass to the listener callbacks.
    */
 
-  emit(eventName: string, ...args: any[]): void {
+  emit(eventName: string, ...args: unknown[]): void {
     const eventListeners = this.listeners[eventName];
     if (eventListeners) {
       eventListeners.forEach((callback) => callback(...args));
@@ -41,10 +41,10 @@ export class EventEmitter implements EventListener {
   /**
   * Removes a specific listener callback for an event.
   * @param {string} eventName - The name of the event.
-  * @param {(...args: any[]) => void} callback - The callback function to remove.
+  * @param {(...args: unknown[]) => void} callback - The callback function to remove.
   */
 
-  remove(eventName: string, callback: (...args: any[]) => void): void {
+  remove(eventName: string, callback: (...args: unknown[]) => void): void {
     const eventListeners = this.listeners[eventName];
     if (eventListeners) {
       this.listeners[eventName] = eventListeners.filter(
